@@ -27,6 +27,9 @@ class Morador:
         numero_apartamento = input("Qual o número do apartamento? ")
       self.apartamento = Apartamento.criar_apartamento_morador(int(numero_apartamento), self)
   
+  def __repr__(self):
+    return f"Morador: {self.nome}"
+
   def votar(self, urna, numero_candidato= 0):
     '''
     Acrescenta um voto na urna caso o apartamento não tenha votado ainda
@@ -67,7 +70,7 @@ class Candidato(Morador):
     self.__votos = 0
   
   def __repr__(self):
-    return f"Candidato {self.numero}: {self.nome}"
+    return f"Candidato {self.numero_candidato}: {self.nome}"
 
   @property
   def numero_candidato(self):
@@ -249,11 +252,11 @@ class Sistema:
           time.sleep(2)
         elif self.opcao == 'c':
           print(Apartamento.lista_de_apartamentos)
-          time.sleep(2)
+          time.sleep(5)
         elif self.opcao == 'd':
           for apartamento in Apartamento.lista_de_apartamentos:
             print(apartamento.lista_de_moradores)
-          time.sleep(2)
+          time.sleep(5)
         elif self.opcao == 'e':
           print('Trabalhando nisso!')
         elif self.opcao == 'h':
